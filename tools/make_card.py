@@ -9,20 +9,26 @@ REG="/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc"
 import os
 if not os.path.exists(BOLD): BOLD=BLACK
 def f(p,s): return ImageFont.truetype(p,s,index=0)
-img=Image.new("RGB",(W,H),"#0E2A47"); d=ImageDraw.Draw(img)
+# theme: "blue"（既定）or "red"
+THEMES={
+ "blue":dict(bg="#0E2A47",waves=["#123659","#16416A","#1B4C7B"],band="#E8452C",bandtag="#FFE1D6",pill="#F5A623",pilltext="#0E2A47",accent="#E8452C",body="#DCE6F0",src="#BFD0E0"),
+ "red":dict(bg="#B3261E",waves=["#A12019","#8E1B15","#7A1611"],band="#0E2A47",bandtag="#CFE0F2",pill="#FFD166",pilltext="#7A1611",accent="#FFD166",body="#FBE4DF",src="#F6C9C0"),
+}
+T=THEMES.get(spec.get("theme","blue"),THEMES["blue"])
+img=Image.new("RGB",(W,H),T["bg"]); d=ImageDraw.Draw(img)
 # wave stripes bottom
-for i,c in enumerate(["#123659","#16416A","#1B4C7B"]):
+for i,c in enumerate(T["waves"]):
     y=H-260+i*70
     d.rectangle([0,y,W,H],fill=c)
 # top band
-d.rectangle([0,0,W,150],fill="#E8452C")
+d.rectangle([0,0,W,150],fill=T["band"])
 d.text((60,42),"EBIKANI NEWS",font=f(BLACK,58),fill="white")
-d.text((W-60,58),spec.get("tag","カニ"),font=f(BOLD,40),fill="#FFE1D6",anchor="ra")
+d.text((W-60,58),spec.get("tag","カニ"),font=f(BOLD,40),fill=T["bandtag"],anchor="ra")
 # category pill
 cat=spec.get("category","ニュース")
 cf=f(BOLD,40); tw=d.textlength(cat,font=cf)
-d.rounded_rectangle([60,210,60+tw+60,280],radius=35,fill="#F5A623")
-d.text((90,245),cat,font=cf,fill="#0E2A47",anchor="lm")
+d.rounded_rectangle([60,210,60+tw+60,280],radius=35,fill=T["pill"])
+d.text((90,245),cat,font=cf,fill=T["pilltext"],anchor="lm")
 # headline wrap
 def wrap(text,font,maxw):
     lines=[];cur=""
@@ -36,11 +42,11 @@ hf=f(BLACK,82); y=330
 for ln in wrap(spec["headline"],hf,W-120):
     d.text((60,y),ln,font=hf,fill="white"); y+=112
 y+=30
-d.rectangle([60,y,200,y+8],fill="#E8452C"); y+=50
+d.rectangle([60,y,200,y+8],fill=T["accent"]); y+=50
 bf=f(REG,44)
 for ln in wrap(spec["body"],bf,W-120):
-    d.text((60,y),ln,font=bf,fill="#DCE6F0"); y+=68
+    d.text((60,y),ln,font=bf,fill=T["body"]); y+=68
 # footer
-d.text((60,H-150),"出典："+spec["source"],font=f(REG,32),fill="#BFD0E0")
+d.text((60,H-150),"出典："+spec["source"],font=f(REG,32),fill=T["src"])
 d.text((60,H-95),"@ebikani_fes ｜ エビカニフェス",font=f(BOLD,38),fill="white")
 img.save(out,"JPEG",quality=90)
