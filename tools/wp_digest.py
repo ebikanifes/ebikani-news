@@ -9,7 +9,7 @@ usage:
   WP_API           省略時 https://ebikani.jp/wp-json/wp/v2
 標準ライブラリのみ使用。
 """
-import argparse, base64, datetime, html, json, os, sys, urllib.parse, urllib.request
+import argparse, base64, datetime, html, json, os, sys, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 API = os.environ.get("WP_API", "https://ebikani.jp/wp-json/wp/v2").rstrip("/")
@@ -38,8 +38,12 @@ def req(method, path, data=None, headers=None, raw=None):
         body = json.dumps(data).encode()
         h["Content-Type"] = "application/json"
     r = urllib.request.Request(API + path, data=body, headers=h, method=method)
-    with urllib.request.urlopen(r, timeout=60) as res:
-        return json.load(res)
+    try:
+        with urllib.request.urlopen(r, timeout=60) as res:
+            return json.load(res)
+    except urllib.error.HTTPError as err:
+        print(f"{method} {path} -> HTTP {err.code}: {err.read()[:500].decode('utf-8','replace')}", file=sys.stderr)
+        raise
 
 
 def title_for(d):
@@ -87,7 +91,7 @@ def upload(path, alt):
     with open(path, "rb") as f:
         m = req("POST", "/media", raw=f.read(), headers={
             "Content-Type": "image/jpeg",
-            "Content-Disposition": f"attachment; filename*=UTF-8''{urllib.parse.quote(name)}"})
+            "Content-Disposition": f'attachment; filename="{name}"'})
     try:
         req("POST", f"/media/{m['id']}", data={"alt_text": alt})
     except Exception:
