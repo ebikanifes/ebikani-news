@@ -1,0 +1,27 @@
+name: 公式サイトに1日のまとめを投稿
+on:
+  schedule:
+    - cron: "41 13 * * *"   # 毎日 22:41 JST（Instagramの最終実行 21:17 の後）
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "対象日 YYYY-MM-DD（空なら今日・日本時間）"
+        required: false
+      status:
+        description: "publish または draft"
+        required: false
+        default: "publish"
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: まとめ記事を投稿
+        env:
+          WP_USER: ${{ secrets.WP_USER }}
+          WP_APP_PASSWORD: ${{ secrets.WP_APP_PASSWORD }}
+        run: |
+          ARGS=""
+          if [ -n "${{ inputs.date }}" ]; then ARGS="$ARGS --date ${{ inputs.date }}"; fi
+          ARGS="$ARGS --status ${{ inputs.status || 'publish' }}"
+          python3 -I tools/wp_digest.py $ARGS
