@@ -50,12 +50,22 @@ def title_for(d):
     return f"エビカニニュース｜{d.month}月{d.day}日（{WEEK[d.weekday()]}）のまとめ"
 
 
-def build_content(entries, media_urls):
+def build_content(entries, media_urls, first=False):
     e = html.escape
-    parts = [
-        f'<p>今日、エビカニフェス公式Instagram（<a href="{IG_URL}">@ebikani_fes</a>）で紹介した'
-        f"エビ・カニの話題を{len(entries)}本まとめてお届けします。</p>"
-    ]
+    ig = f'<a href="{IG_URL}">@ebikani_fes</a>'
+    if first:
+        parts = [
+            "<p>エビカニフェス公式サイトでは、本日から「エビカニニュース」をお届けします。</p>",
+            "<p>全国の旬のエビ・カニのニュースをはじめ、エビ・カニが返礼品にあるふるさと納税の自治体や、"
+            f"エビ・カニの食べ放題が楽しめるお店など、公式Instagram（{ig}）で紹介した話題を、"
+            "毎日1本のまとめ記事にしてこちらに掲載していきます。フェスは終わっても、エビ・カニの楽しみはまだまだ続きます！</p>",
+            f"<p>記念すべき第1回は、{len(entries)}本の話題をお届けします。</p>",
+        ]
+    else:
+        parts = [
+            f"<p>エビカニニュースでは、公式Instagram（{ig}）で紹介したエビ・カニの話題を毎日まとめてお届けしています。"
+            f"今日の話題は{len(entries)}本です。</p>"
+        ]
     notes = []
     for i, x in enumerate(entries):
         label = TYPE_LABEL.get(x.get("type", "news"), "ニュース")
@@ -77,17 +87,34 @@ def build_content(entries, media_urls):
     return "\n".join(parts)
 
 
-def already_posted(title):
+def find_digests(title):
+    """同じタイトルの記事のID（なければNone）と、ほかに公開済みのエビカニニュースがあるかを返す。"""
     q = urllib.parse.urlencode({"search": "エビカニニュース", "status": "publish,draft,pending,future",
-                                "context": "edit", "per_page": 20, "_fields": "id,title"})
+                                "context": "edit", "per_page": 50, "_fields": "id,title,status"})
+    same, others = None, False
     for p in req("GET", "/news?" + q):
-        if p["title"].get("raw") == title:
-            return p["id"]
+        t = p["title"].get("raw", "")
+        if t == title:
+            same = p["id"]
+        elif t.startswith("エビカニニュース") and p.get("status") == "publish":
+            others = True
+    return same, others
+
+
+def find_media(name):
+    stem = os.path.splitext(name)[0]
+    q = urllib.parse.urlencode({"search": stem, "per_page": 20, "_fields": "id,source_url"})
+    for m in req("GET", "/media?" + q):
+        if os.path.basename(m["source_url"]).startswith(stem):
+            return m["id"], m["source_url"]
     return None
 
 
 def upload(path, alt):
     name = os.path.basename(path)
+    found = find_media(name)
+    if found:
+        return found
     with open(path, "rb") as f:
         m = req("POST", "/media", raw=f.read(), headers={
             "Content-Type": "image/jpeg",
@@ -103,6 +130,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--first", action="store_true", help="dry-run で初回の書き出しを確認する")
     ap.add_argument("--status", default="publish", choices=["publish", "draft"])
     a = ap.parse_args()
     d = datetime.date.fromisoformat(a.date) if a.date else datetime.datetime.now(JST).date()
@@ -115,11 +143,10 @@ def main():
     if a.dry_run:
         urls = ["https://raw.githubusercontent.com/ebikanifes/ebikani-news/main/" + x["image"] if x.get("image") else None for x in entries]
         print(title)
-        print(build_content(entries, urls))
+        print(build_content(entries, urls, first=a.first))
         return
-    if already_posted(title):
-        print(f"すでに投稿済み：{title}")
-        return
+    same, others = find_digests(title)
+    first = not others
     ids, urls = [], []
     for x in entries:
         p = os.path.join(ROOT, x.get("image", ""))
@@ -128,12 +155,17 @@ def main():
             ids.append(mid); urls.append(url)
         else:
             ids.append(None); urls.append(None)
-    post = {"title": title, "content": build_content(entries, urls), "status": a.status}
-    first = next((i for i in ids if i), None)
-    if first:
-        post["featured_media"] = first
-    r = req("POST", "/news", data=post)
-    print(f"投稿しました：{title} {r.get('link')}")
+    post = {"title": title, "content": build_content(entries, urls, first=first), "status": a.status}
+    fm = next((i for i in ids if i), None)
+    if fm:
+        post["featured_media"] = fm
+    if same:
+        # 同じ日の記事がすでにあれば、その日の最新の内容で上書きする（夜の実行で昼以降の投稿も反映）
+        r = req("POST", f"/news/{same}", data=post)
+        print(f"更新しました：{title} {r.get('link')}")
+    else:
+        r = req("POST", "/news", data=post)
+        print(f"投稿しました：{title} {r.get('link')}")
 
 
 if __name__ == "__main__":
