@@ -12,6 +12,7 @@ def f(p,s): return ImageFont.truetype(p,s,index=0)
 # theme: "blue"（既定）or "red"
 THEMES={
  "blue":dict(bg="#0E2A47",waves=["#123659","#16416A","#1B4C7B"],band="#E8452C",bandtag="#FFE1D6",pill="#F5A623",pilltext="#0E2A47",accent="#E8452C",body="#DCE6F0",src="#BFD0E0"),
+ "cream":dict(bg="#FFF4E0",waves=["#FFE6C2","#FFD9A6","#FFCB8A"],band="#F07C1E",bandtag="#FFF4E0",pill="#0E2A47",pilltext="#FFFFFF",accent="#F07C1E",body="#4A3A2A",src="#7A5A3A",head="#3A2414",foot="#3A2414"),
  "red":dict(bg="#B3261E",waves=["#A12019","#8E1B15","#7A1611"],band="#0E2A47",bandtag="#CFE0F2",pill="#FFD166",pilltext="#7A1611",accent="#FFD166",body="#FBE4DF",src="#F6C9C0"),
 }
 T=THEMES.get(spec.get("theme","blue"),THEMES["blue"])
@@ -40,7 +41,7 @@ def wrap(text,font,maxw):
     return lines
 hf=f(BLACK,82); y=330
 for ln in wrap(spec["headline"],hf,W-120):
-    d.text((60,y),ln,font=hf,fill="white"); y+=112
+    d.text((60,y),ln,font=hf,fill=T.get("head","white")); y+=112
 y+=30
 d.rectangle([60,y,200,y+8],fill=T["accent"]); y+=50
 bf=f(REG,44)
@@ -48,5 +49,5 @@ for ln in wrap(spec["body"],bf,W-120):
     d.text((60,y),ln,font=bf,fill=T["body"]); y+=68
 # footer
 d.text((60,H-150),"出典："+spec["source"],font=f(REG,32),fill=T["src"])
-d.text((60,H-95),"@ebikani_fes ｜ エビカニフェス",font=f(BOLD,38),fill="white")
+d.text((60,H-95),"@ebikani_fes ｜ エビカニフェス",font=f(BOLD,38),fill=T.get("foot","white"))
 img.save(out,"JPEG",quality=90)
