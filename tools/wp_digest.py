@@ -65,8 +65,9 @@ def build_content(entries, media_urls, first=False):
         ]
     else:
         parts = [
-            "<p>エビカニニュースでは、エビ・カニのニュースやふるさと納税、食べ放題、グルメ情報を毎日まとめてお届けしています。"
-            f"今日の話題は{len(entries)}本です。</p>"
+            "<p>エビカニフェスでは、エビとカニに関する情報を随時お伝えしていきます。</p>",
+            "<p>エビ・カニのニュースやふるさと納税、食べ放題、グルメ情報を毎日まとめてお届けしています。"
+            f"今日の話題は{len(entries)}本です。</p>",
         ]
     notes = []
     for i, x in enumerate(entries):
