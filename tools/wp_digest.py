@@ -1,4 +1,5 @@
-"""その日にInstagramへ投稿した内容を1本のまとめ記事にして、公式サイト（WordPress）の「最新情報」に投稿する。
+"""公式サイト用に選んだその日の話題（site_posts.json）を1本のまとめ記事にして、公式サイト（WordPress）の「最新情報」に投稿する。
+（Instagram の投稿記録 posted.json とは別。サイト独自の話題だけを使う）
 
 usage:
   python3 -I tools/wp_digest.py [--date YYYY-MM-DD] [--dry-run] [--status publish|draft]
@@ -15,10 +16,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 API = os.environ.get("WP_API", "https://ebikani.jp/wp-json/wp/v2").rstrip("/")
 JST = datetime.timezone(datetime.timedelta(hours=9))
 WEEK = "月火水木金土日"
-TYPE_LABEL = {"news": "ニュース", "furusato": "ふるさと納税", "tabehoudai": "食べ放題"}
+TYPE_LABEL = {"news": "ニュース", "furusato": "ふるさと納税", "tabehoudai": "食べ放題", "gourmet": "グルメ情報"}
 NOTE = {
     "furusato": "※内容・寄附額は変更になる場合があります。最新情報は各ページでご確認ください。",
     "tabehoudai": "※料金・内容は変わる場合があります。最新情報は公式サイトでご確認ください。",
+    "gourmet": "※料金・内容は変わる場合があります。最新情報は公式サイトでご確認ください。",
 }
 IG_URL = "https://www.instagram.com/ebikani_fes/"
 
@@ -56,14 +58,14 @@ def build_content(entries, media_urls, first=False):
     if first:
         parts = [
             "<p>エビカニフェス公式サイトでは、本日から「エビカニニュース」をお届けします。</p>",
-            "<p>全国の旬のエビ・カニのニュースをはじめ、エビ・カニが返礼品にあるふるさと納税の自治体や、"
-            f"エビ・カニの食べ放題が楽しめるお店など、公式Instagram（{ig}）で紹介した話題を、"
+            "<p>全国の旬のエビ・カニのニュースをはじめ、エビ・カニが返礼品にあるふるさと納税の自治体、"
+            "エビ・カニの食べ放題が楽しめるお店、エビ・カニ料理のグルメ情報などを、"
             "毎日1本のまとめ記事にしてこちらに掲載していきます。フェスは終わっても、エビ・カニの楽しみはまだまだ続きます！</p>",
             f"<p>記念すべき第1回は、{len(entries)}本の話題をお届けします。</p>",
         ]
     else:
         parts = [
-            f"<p>エビカニニュースでは、公式Instagram（{ig}）で紹介したエビ・カニの話題を毎日まとめてお届けしています。"
+            "<p>エビカニニュースでは、エビ・カニのニュースやふるさと納税、食べ放題、グルメ情報を毎日まとめてお届けしています。"
             f"今日の話題は{len(entries)}本です。</p>"
         ]
     notes = []
@@ -134,10 +136,13 @@ def main():
     ap.add_argument("--status", default="publish", choices=["publish", "draft"])
     a = ap.parse_args()
     d = datetime.date.fromisoformat(a.date) if a.date else datetime.datetime.now(JST).date()
-    posted = json.load(open(os.path.join(ROOT, "posted.json"), encoding="utf-8"))
-    entries = [x for x in posted if x.get("date") == d.isoformat()]
+    path = os.path.join(ROOT, "site_posts.json")
+    posted = json.load(open(path, encoding="utf-8")) if os.path.exists(path) else []
+    order = {"news": 0, "furusato": 1, "tabehoudai": 2, "gourmet": 3}
+    entries = sorted((x for x in posted if x.get("date") == d.isoformat()),
+                     key=lambda x: order.get(x.get("type", "news"), 9))
     if not entries:
-        print(f"{d}: Instagram投稿なし。まとめ記事は作りません。")
+        print(f"{d}: site_posts.json にこの日の話題がありません。まとめ記事は作りません。")
         return
     title = title_for(d)
     if a.dry_run:

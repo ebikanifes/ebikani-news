@@ -1,7 +1,7 @@
 name: 公式サイトに1日のまとめを投稿
 on:
   schedule:
-    - cron: "41 13 * * *"   # 毎日 22:41 JST（Instagramの最終実行 21:17 の後）
+    - cron: "41 13 * * *"   # 毎日 22:41 JST（予備。通常はサイト用の定期実行が site_posts.json を更新した直後に workflow_dispatch で呼ぶ）
   workflow_dispatch:
     inputs:
       date:
