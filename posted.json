@@ -1,139 +1,154 @@
 [
-  {
-    "date": "2026-11-11",
-    "title": "越前かにまつり2026 開催（11/14・15・21・22）",
-    "source_url": "https://fuku-iro.jp/event/detail_11462.html",
-    "image": "images/2026-11-11-echizen-kanimatsuri.jpg",
-    "media_id": "18045541634832958"
-  },
-  {
-    "date": "2026-11-11",
-    "title": "越前がに初競り 最高級ブランド「極」が290万円で落札",
-    "source_url": "https://news.web.nhk/newsweb/na/nd-20261110de73409",
-    "image": "images/2026-11-11-echizen-kiwami-hatsuseri.jpg",
-    "media_id": "17911760286563365"
-  },
-  {
-    "date": "2026-11-11",
-    "type": "news",
-    "title": "有明海の養殖車エビ 出荷始まる（長崎・南島原）",
-    "source_url": "https://news.web.nhk/newsweb/na/nd-20261111de74229",
-    "image": "images/2026-11-11-minamishimabara-kurumaebi.jpg",
-    "media_id": "18138799477658716"
-  },
-  {
-    "date": "2026-11-11",
-    "type": "news",
-    "title": "京丹後のブランドガニ「間人ガニ」今季初の競り（京都）",
-    "source_url": "https://news.web.nhk/newsweb/na/nd-20261109de73185",
-    "image": "images/2026-11-11-taiza-gani-hatsuseri.jpg",
-    "media_id": "17913162642304427"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "furusato",
-    "theme": "red",
-    "title": "兵庫県香美町「香住ガニ」ふるさと納税返礼品",
-    "source_url": "https://dshopping-furusato.docomo.ne.jp/jichitai/285854",
-    "image": "images/2026-11-12-kami-kasumigani-furusato.jpg",
-    "media_id": "18106016717645800",
-    "source_name": "dショッピングふるさと納税百選（兵庫県香美町）",
-    "summary": "関西では香住漁港だけで水揚げされる紅ズワイガニが「香住ガニ」。みずみずしい甘さが魅力で、甲羅盛りやかにしゃぶセットなどが返礼品に並んでいます。"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "news",
-    "theme": "blue",
-    "title": "魚津市「蟹大騒動」紅ズワイ蒸しガニ300杯（11/14・15）",
-    "source_url": "https://www.kankokeizai.com/2611120900kks/",
-    "image": "images/2026-11-12-uozu-kani-sodo.jpg",
-    "media_id": "18123123547985925",
-    "source_name": "観光経済新聞",
-    "summary": "富山県魚津市の海の駅蜃気楼で11月14・15日、カニイベントを拡大開催。魚津港直送の紅ズワイガニを丸ごと1杯味わえる蒸しガニ（原則事前予約）のほか、持ち帰り用の販売や地元飲食店の初出店も。"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "news",
-    "theme": "red",
-    "title": "新潟・能生漁港に本ズワイガニ今季初水揚げ（約1,300kg）",
-    "source_url": "https://joetsu.yukiguni.town/l-news/341911/",
-    "image": "images/2026-11-12-nou-zuwaigani.jpg",
-    "media_id": "18576359188075978"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "tabehoudai",
-    "theme": "blue",
-    "title": "フェニックス・シーガイア・リゾート「カニフェア」蒸しズワイガニ食べ放題（宮崎）",
-    "source_url": "https://www.zaikei.co.jp/releases/3667986/",
-    "image": "images/2026-11-12-seagaia-crab-fair.jpg",
-    "media_id": "18018558881782108"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "furusato",
-    "theme": "red",
-    "title": "北海道枝幸町「オホーツク枝幸産 毛ガニ」ふるさと納税返礼品",
-    "source_url": "https://item.rakuten.co.jp/f015148-esashi/57081183/",
-    "source_name": "楽天ふるさと納税（北海道枝幸町）",
-    "summary": "オホーツク海に面した北海道枝幸町は、カニの町として知られる毛ガニの産地です。流氷が運ぶ栄養豊かな海で育った毛ガニは身がぎっしりで、かにみそも濃厚。ふるさと納税では枝幸産の毛ガニが返礼品に並んでいます。",
-    "image": "images/2026-11-12-esashi-kegani-furusato.jpg",
-    "media_id": "18104697335378848"
-  },
-  {
-    "date": "2026-11-12",
-    "type": "tabehoudai",
-    "theme": "blue",
-    "title": "ANAクラウンプラザホテルグランコート名古屋「ガーデンコート」土日祝ディナー紅ズワイガニ食べ放題",
-    "source_url": "https://www.anacrowneplaza-nagoya.jp/products/5460",
-    "source_name": "ANAクラウンプラザホテルグランコート名古屋",
-    "summary": "ANAクラウンプラザホテルグランコート名古屋の「ガーデンコート」では、土・日・祝日のディナーブッフェで紅ズワイガニが食べ放題。各回90分の2部制で、12月は金曜や年末も対象日に加わります。",
-    "image": "images/2026-11-12-nagoya-benizuwai-buffet.jpg",
-    "media_id": "18135237847775505"
-  },
-  {
-    "date": "2026-11-13",
-    "type": "tabehoudai",
-    "theme": "red",
-    "title": "都ホテル 岐阜長良川「和・洋・中 ～冬の味覚ブッフェ～」ランチ限定マルズワイガニ食べ放題（12/1〜2/28）",
-    "source_url": "https://www.zaikei.co.jp/releases/3709866/",
-    "source_name": "都ホテルズ＆リゾーツ",
-    "summary": "12月1日から、都ホテル 岐阜長良川で冬の味覚ブッフェを開催。ランチ限定でマルズワイガニが食べ放題に！赤海老の鉄板焼きなど和洋中の味も並び、来年2月28日まで楽しめます。",
-    "image": "images/2026-11-13-gifu-miyako-crab-lunch.jpg",
-    "media_id": "18136275868739388"
-  },
-  {
-    "date": "2026-11-13",
-    "type": "news",
-    "theme": "blue",
-    "title": "天橋立・宮津「カニマルシェプラン」に伊勢海老・セコガニなど新オプション登場",
-    "source_url": "https://prtimes.jp/main/html/rd/p/000000167.000021997.html",
-    "source_name": "株式会社にしがき（PR TIMES）",
-    "summary": "京都・宮津の13施設で楽しめる「カニマルシェプラン」に、生け簀から選ぶセコガニや伊勢海老、貝類、甲羅飯に加えるウニ・イクラの追加オプションが登場。宿泊は2027年3月20日まで楽しめます。",
-    "image": "images/2026-11-13-amanohashidate-kani-marche.jpg",
-    "media_id": "18146905264585217"
-  },
-  {
-    "date": "2026-11-13",
-    "type": "character",
-    "title": "エビカニ劇場「静かな金曜日」",
-    "stamps": [
-      "otsukanisama",
-      "ebi-rotation",
-      "shizukani",
-      "tashikani",
-      "kanipai"
-    ],
-    "summary": "金曜の夜にひとりで静かに過ごすつもりのカニの家にエビ仲間が押しかけ、最初は注意したカニが結局いちばん盛り上がる話。",
-    "image": "images/2026-11-13-gekijo-01.jpg",
-    "media_id": "18092797736262017",
-    "story_ids": [
-      "18111645317630565",
-      "18104258942350551",
-      "17937024288142134",
-      "17880663054565996",
-      "17912635155579096"
-    ],
-    "highlight": "キャラ"
-  }
+ {
+  "date": "2026-11-11",
+  "title": "越前かにまつり2026 開催（11/14・15・21・22）",
+  "source_url": "https://fuku-iro.jp/event/detail_11462.html",
+  "image": "images/2026-11-11-echizen-kanimatsuri.jpg",
+  "media_id": "18045541634832958"
+ },
+ {
+  "date": "2026-11-11",
+  "title": "越前がに初競り 最高級ブランド「極」が290万円で落札",
+  "source_url": "https://news.web.nhk/newsweb/na/nd-20261110de73409",
+  "image": "images/2026-11-11-echizen-kiwami-hatsuseri.jpg",
+  "media_id": "17911760286563365"
+ },
+ {
+  "date": "2026-11-11",
+  "type": "news",
+  "title": "有明海の養殖車エビ 出荷始まる（長崎・南島原）",
+  "source_url": "https://news.web.nhk/newsweb/na/nd-20261111de74229",
+  "image": "images/2026-11-11-minamishimabara-kurumaebi.jpg",
+  "media_id": "18138799477658716"
+ },
+ {
+  "date": "2026-11-11",
+  "type": "news",
+  "title": "京丹後のブランドガニ「間人ガニ」今季初の競り（京都）",
+  "source_url": "https://news.web.nhk/newsweb/na/nd-20261109de73185",
+  "image": "images/2026-11-11-taiza-gani-hatsuseri.jpg",
+  "media_id": "17913162642304427"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "furusato",
+  "theme": "red",
+  "title": "兵庫県香美町「香住ガニ」ふるさと納税返礼品",
+  "source_url": "https://dshopping-furusato.docomo.ne.jp/jichitai/285854",
+  "image": "images/2026-11-12-kami-kasumigani-furusato.jpg",
+  "media_id": "18106016717645800",
+  "source_name": "dショッピングふるさと納税百選（兵庫県香美町）",
+  "summary": "関西では香住漁港だけで水揚げされる紅ズワイガニが「香住ガニ」。みずみずしい甘さが魅力で、甲羅盛りやかにしゃぶセットなどが返礼品に並んでいます。"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "news",
+  "theme": "blue",
+  "title": "魚津市「蟹大騒動」紅ズワイ蒸しガニ300杯（11/14・15）",
+  "source_url": "https://www.kankokeizai.com/2611120900kks/",
+  "image": "images/2026-11-12-uozu-kani-sodo.jpg",
+  "media_id": "18123123547985925",
+  "source_name": "観光経済新聞",
+  "summary": "富山県魚津市の海の駅蜃気楼で11月14・15日、カニイベントを拡大開催。魚津港直送の紅ズワイガニを丸ごと1杯味わえる蒸しガニ（原則事前予約）のほか、持ち帰り用の販売や地元飲食店の初出店も。"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "news",
+  "theme": "red",
+  "title": "新潟・能生漁港に本ズワイガニ今季初水揚げ（約1,300kg）",
+  "source_url": "https://joetsu.yukiguni.town/l-news/341911/",
+  "image": "images/2026-11-12-nou-zuwaigani.jpg",
+  "media_id": "18576359188075978"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "tabehoudai",
+  "theme": "blue",
+  "title": "フェニックス・シーガイア・リゾート「カニフェア」蒸しズワイガニ食べ放題（宮崎）",
+  "source_url": "https://www.zaikei.co.jp/releases/3667986/",
+  "image": "images/2026-11-12-seagaia-crab-fair.jpg",
+  "media_id": "18018558881782108"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "furusato",
+  "theme": "red",
+  "title": "北海道枝幸町「オホーツク枝幸産 毛ガニ」ふるさと納税返礼品",
+  "source_url": "https://item.rakuten.co.jp/f015148-esashi/57081183/",
+  "source_name": "楽天ふるさと納税（北海道枝幸町）",
+  "summary": "オホーツク海に面した北海道枝幸町は、カニの町として知られる毛ガニの産地です。流氷が運ぶ栄養豊かな海で育った毛ガニは身がぎっしりで、かにみそも濃厚。ふるさと納税では枝幸産の毛ガニが返礼品に並んでいます。",
+  "image": "images/2026-11-12-esashi-kegani-furusato.jpg",
+  "media_id": "18104697335378848"
+ },
+ {
+  "date": "2026-11-12",
+  "type": "tabehoudai",
+  "theme": "blue",
+  "title": "ANAクラウンプラザホテルグランコート名古屋「ガーデンコート」土日祝ディナー紅ズワイガニ食べ放題",
+  "source_url": "https://www.anacrowneplaza-nagoya.jp/products/5460",
+  "source_name": "ANAクラウンプラザホテルグランコート名古屋",
+  "summary": "ANAクラウンプラザホテルグランコート名古屋の「ガーデンコート」では、土・日・祝日のディナーブッフェで紅ズワイガニが食べ放題。各回90分の2部制で、12月は金曜や年末も対象日に加わります。",
+  "image": "images/2026-11-12-nagoya-benizuwai-buffet.jpg",
+  "media_id": "18135237847775505"
+ },
+ {
+  "date": "2026-11-13",
+  "type": "tabehoudai",
+  "theme": "red",
+  "title": "都ホテル 岐阜長良川「和・洋・中 ～冬の味覚ブッフェ～」ランチ限定マルズワイガニ食べ放題（12/1〜2/28）",
+  "source_url": "https://www.zaikei.co.jp/releases/3709866/",
+  "source_name": "都ホテルズ＆リゾーツ",
+  "summary": "12月1日から、都ホテル 岐阜長良川で冬の味覚ブッフェを開催。ランチ限定でマルズワイガニが食べ放題に！赤海老の鉄板焼きなど和洋中の味も並び、来年2月28日まで楽しめます。",
+  "image": "images/2026-11-13-gifu-miyako-crab-lunch.jpg",
+  "media_id": "18136275868739388"
+ },
+ {
+  "date": "2026-11-13",
+  "type": "news",
+  "theme": "blue",
+  "title": "天橋立・宮津「カニマルシェプラン」に伊勢海老・セコガニなど新オプション登場",
+  "source_url": "https://prtimes.jp/main/html/rd/p/000000167.000021997.html",
+  "source_name": "株式会社にしがき（PR TIMES）",
+  "summary": "京都・宮津の13施設で楽しめる「カニマルシェプラン」に、生け簀から選ぶセコガニや伊勢海老、貝類、甲羅飯に加えるウニ・イクラの追加オプションが登場。宿泊は2027年3月20日まで楽しめます。",
+  "image": "images/2026-11-13-amanohashidate-kani-marche.jpg",
+  "media_id": "18146905264585217"
+ },
+ {
+  "date": "2026-11-13",
+  "type": "character",
+  "title": "エビカニ劇場「静かな金曜日」",
+  "stamps": [
+   "otsukanisama",
+   "ebi-rotation",
+   "shizukani",
+   "tashikani",
+   "kanipai"
+  ],
+  "summary": "金曜の夜にひとりで静かに過ごすつもりのカニの家にエビ仲間が押しかけ、最初は注意したカニが結局いちばん盛り上がる話。",
+  "image": "images/2026-11-13-gekijo-01.jpg",
+  "media_id": "18092797736262017",
+  "story_ids": [
+   "18111645317630565",
+   "18104258942350551",
+   "17937024288142134",
+   "17880663054565996",
+   "17912635155579096"
+  ],
+  "highlight": "キャラ"
+ },
+ {
+  "date": "2026-11-14",
+  "type": "shutten",
+  "theme": "red",
+  "title": "かにざんまい 池袋店（ズワイ蟹と寿司の100分食べ放題）",
+  "area": "東京都豊島区",
+  "source_url": "https://kanizanmai-ikebukuro.foodre.jp/",
+  "source_name": "かにざんまい 池袋店 公式サイト",
+  "summary": "フェスに出店してくれたかにざんまい。池袋店はJR池袋駅から徒歩3分。ズワイ蟹に寿司や逸品料理まで100分たっぷり楽しめます。平日ランチの御前は1,848円（税込）〜",
+  "image": "images/2026-11-14-kanizanmai-ikebukuro.jpg",
+  "story_image": "images/2026-11-14-kanizanmai-ikebukuro-story.jpg",
+  "media_id": "18135143131808608",
+  "story_id": "18362917936220543",
+  "highlight": "グルメ"
+ }
 ]
