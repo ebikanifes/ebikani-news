@@ -180,5 +180,20 @@
     "media_id": "17995649175063673",
     "story_id": "17925006564450266",
     "highlight": "グルメ"
+  },
+  {
+    "date": "2026-11-18",
+    "type": "news",
+    "theme": "blue",
+    "title": "鳥取県が「蟹取県」に 東京・新橋館で松葉がにの蟹ガラポン（11/18〜29）",
+    "area": "",
+    "source_url": "https://prtimes.jp/main/html/rd/p/000000257.000078201.html",
+    "source_name": "鳥取県（PR TIMES）",
+    "summary": "鳥取県が「蟹取県」に！11/17に東京・新橋のアンテナショップで発表会。カニのガラポン（〜11/29）や限定プレート（〜12/13）が登場です。",
+    "image": "images/2026-11-18-kanitori-ken.jpg",
+    "story_image": "images/2026-11-18-kanitori-ken-story.jpg",
+    "media_id": "18417839089094473",
+    "story_id": "18182810230449277",
+    "highlight": "ニュース"
   }
 ]
