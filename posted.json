@@ -233,5 +233,23 @@
   "media_id": "18141162310650216",
   "story_id": "18060977942563807",
   "highlight": "グルメ"
+ },
+ {
+  "date": "2026-11-22",
+  "type": "quiz",
+  "theme": "cream",
+  "title": "二択クイズ：タラバガニはカニ？ヤドカリ？（正解はヤドカリの仲間）",
+  "area": "",
+  "source_url": "https://www.seto.kyoto-u.ac.jp/shirahama_aqua/wp-content/uploads/2023/03/yadokari-karada.pdf",
+  "source_name": "京都大学 瀬戸臨海実験所 白浜水族館",
+  "summary": "タラバガニはヤドカリの仲間。カニは歩く脚が4対ありますが、タラバガニは外から見えるのが3対だけ。いちばん後ろの1対は小さく退化して甲羅の下に隠れています。",
+  "image": [
+   "images/2026-11-22-taraba-quiz-1.jpg",
+   "images/2026-11-22-taraba-quiz-2.jpg"
+  ],
+  "story_image": "images/2026-11-22-taraba-quiz-story.jpg",
+  "media_id": "17889011604504219",
+  "story_id": "18118737944626594",
+  "highlight": "まめ知識"
  }
 ]
